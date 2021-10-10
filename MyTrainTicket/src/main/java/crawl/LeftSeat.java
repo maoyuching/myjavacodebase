@@ -79,5 +79,4 @@ public class LeftSeat {
         String edrz_num;
         String edrz_price;
         String wz_price;
-
 }

@@ -42,7 +42,7 @@ public class AnythingTest {
         urlBuilder.addQueryParameter("train_no", "630000K2100I");
         urlBuilder.addQueryParameter("from_station_telecode", "YNG");
         urlBuilder.addQueryParameter("to_station_telecode", "NGH");
-        urlBuilder.addQueryParameter("depart_date", "2021-10-06");
+        urlBuilder.addQueryParameter("depart_date", "2021-10-12");
 
         String url = urlBuilder.build().toString();
 
@@ -80,7 +80,7 @@ public class AnythingTest {
      */
     @Test
     public void test3() throws IOException {
-        val url = "https://kyfw.12306.cn/otn/leftTicketPrice/query?leftTicketDTO.train_date=2021-10-09&leftTicketDTO.from_station=YGG&leftTicketDTO.to_station=NGH&leftTicketDTO.ticket_type=1&randCode=";
+        val url = "https://kyfw.12306.cn/otn/leftTicketPrice/query?leftTicketDTO.train_date=2021-10-12&leftTicketDTO.from_station=YGG&leftTicketDTO.to_station=NGH&leftTicketDTO.ticket_type=1&randCode=";
         val request = new Request.Builder().url(url).build();
         val response = getClient().newCall(request).execute();
         System.out.println(response.body().string());
