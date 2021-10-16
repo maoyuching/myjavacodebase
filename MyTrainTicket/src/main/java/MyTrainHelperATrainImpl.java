@@ -18,11 +18,6 @@ public class MyTrainHelperATrainImpl implements MyTrainHelper {
      * 当日车次
      */
     LocalDate date;
-
-    StationEnum begin;
-
-    StationEnum end;
-
     @Override
     public List<?> getTrainTickets() {
         return null;
