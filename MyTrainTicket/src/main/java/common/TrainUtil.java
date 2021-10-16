@@ -6,7 +6,7 @@ import cn.hutool.core.lang.Assert;
 import cn.hutool.core.net.url.UrlBuilder;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.http.HttpUtil;
-import jdk.nashorn.internal.objects.annotations.Setter;
+import com.alibaba.fastjson.JSONObject;
 import lombok.SneakyThrows;
 import lombok.val;
 import okhttp3.OkHttpClient;
@@ -49,22 +49,23 @@ public class TrainUtil {
         return stations.get(i + 1);
     }
 
+    /**
+     * 根据火车 code 获取 编号
+     * @param code like G1416
+     * @return like "5e000G141672"
+     */
     @SneakyThrows
     public static String getTrainNoByTrainCode(String code) {
 
         val dateArg = DateUtil.format(LocalDateTime.now(), "yyyyMMdd");
-        val url = "https://search.12306.cn/search/v1/train/search?keyword=G1375&date=20211010";
         val qUrl = UrlBuilder.of("https://search.12306.cn/search/v1/train/search")
                 .addQuery("keyword", code)
                 .addQuery("date", dateArg)
                 .build();
         val request = new Request.Builder().url(qUrl).build();
-
         val response = new OkHttpClient().newCall(request).execute();
-        System.out.println(response.body().string());
+        val jsonO =  JSONObject.parseObject(response.body().string());
 
-        return "";
+        return jsonO.getJSONArray("data").getJSONObject(0).getString("train_no");
     }
-
-
 }
