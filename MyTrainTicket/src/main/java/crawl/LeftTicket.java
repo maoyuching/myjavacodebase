@@ -1,5 +1,6 @@
 package crawl;
 
+import com.alibaba.fastjson.JSONObject;
 import lombok.Builder;
 import lombok.Data;
 import lombok.experimental.Accessors;
@@ -38,4 +39,12 @@ public class LeftTicket {
     int bedYw;
     int bedRw;
 
+    /**
+     *  根据 余票 dto json 文件生成对象
+     * @param jsonObject leftDto
+     * @return the obj
+     */
+    public static LeftTicket valueOf(JSONObject jsonObject) {
+        return null;
+    }
 }
