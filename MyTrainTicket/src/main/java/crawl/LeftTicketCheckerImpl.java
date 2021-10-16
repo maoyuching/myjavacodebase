@@ -1,6 +1,9 @@
 package crawl;
 
+import cn.hutool.core.net.url.UrlBuilder;
 import cn.hutool.core.util.StrUtil;
+import cn.hutool.core.util.URLUtil;
+import cn.hutool.http.HttpUtil;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import lombok.SneakyThrows;
@@ -9,6 +12,8 @@ import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 public class LeftTicketCheckerImpl implements LeftTicketChecker {
@@ -20,21 +25,18 @@ public class LeftTicketCheckerImpl implements LeftTicketChecker {
     String typeParam = "leftTicketDTO.ticket_type";
     String randParam = "randCode";
 
-    @SneakyThrows
     @Override
-    public JSONObject check(String trainCode, String from, String to, String date) {
-        val ub = HttpUrl.parse(this.url).newBuilder();
-        ub.addQueryParameter(this.dateParam, date);
-        ub.addQueryParameter(this.fromParam, from);
-        ub.addQueryParameter(this.toParam, to);
-        ub.addQueryParameter(this.typeParam, "1");
-        ub.addQueryParameter(this.randParam, "");
+    public LeftTicket check(String trainCode, String from, String to, LocalDate date) {
+        val queryUrl = UrlBuilder.of(url)
+                .addQuery(dateParam, date.format(DateTimeFormatter.ISO_LOCAL_DATE))
+                .addQuery(fromParam, from)
+                .addQuery(toParam, to)
+                .addQuery(typeParam, "1")
+                .addQuery(randParam, "")
+                .build();
+        String body = HttpUtil.createGet(queryUrl).execute().body();
 
-        val request = new Request.Builder().url(ub.build().toString()).build();
-        val response = new OkHttpClient().newCall(request).execute();
-
-        String body = response.body().string();
-        return JSON.parseObject(body)
+        JSONObject res = JSON.parseObject(body)
                 .getJSONArray("data")
                 .stream()
                 .map(o -> (JSONObject) o)
@@ -42,6 +44,9 @@ public class LeftTicketCheckerImpl implements LeftTicketChecker {
                 .filter(o -> StrUtil.equals(trainCode,o.getString("station_train_code")))
                 .findFirst()
                 .orElseGet(null);
+
+        // trans json obj to leftTicket
+        return LeftTicketTranser.INSTANCE.fromJsonObject(res);
     }
 
     @Override

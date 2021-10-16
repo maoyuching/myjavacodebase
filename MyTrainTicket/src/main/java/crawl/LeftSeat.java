@@ -3,6 +3,7 @@ package crawl;
 import lombok.Data;
 
 @Data
+@Deprecated
 public class LeftSeat {
 
         String train_no; // 编码

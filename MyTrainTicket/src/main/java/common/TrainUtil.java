@@ -54,7 +54,6 @@ public class TrainUtil {
      */
     @SneakyThrows
     public static String getTrainNoByTrainCode(String code) {
-
         val dateArg = DateUtil.format(LocalDateTime.now(), "yyyyMMdd");
         val qUrl = UrlBuilder.of("https://search.12306.cn/search/v1/train/search")
                 .addQuery("keyword", code)
