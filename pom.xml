@@ -11,6 +11,7 @@
 
     <modules>
         <module>MyTrainTicket</module>
+        <module>MyRegister</module>
     </modules>
 
     <dependencies>

@@ -1,5 +1,7 @@
 package crawl;
 
+import jdk.vm.ci.meta.Local;
+
 import java.time.LocalDate;
 import java.util.List;
 
@@ -23,5 +25,5 @@ public interface LeftTicketChecker {
      * @param date 日期， 字符串格式 like 2021-01-01
      * @return list of station code, such as VAP
      */
-    List<String> search(String trainCode, String from, String to, String date);
+    List<String> search(String trainCode, String from, String to, LocalDate date);
 }
