@@ -12,6 +12,7 @@
     <modules>
         <module>MyTrainTicket</module>
         <module>MyRegister</module>
+        <module>OJ</module>
     </modules>
 
     <dependencies>
