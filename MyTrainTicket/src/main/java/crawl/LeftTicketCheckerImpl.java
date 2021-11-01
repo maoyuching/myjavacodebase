@@ -6,13 +6,14 @@ import cn.hutool.http.HttpUtil;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import common.TrainUtil;
+import lombok.val;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class LeftTicketCheckerImpl implements LeftTicketChecker {
+public class LeftTicketCheckerImpl implements MyTicketChecker {
 //    String url = "https://kyfw.12306.cn/otn/leftTicketPrice/query?leftTicketDTO.train_date=2021-10-09&leftTicketDTO.from_station=YGG&leftTicketDTO.to_station=NGH&leftTicketDTO.ticket_type=1&randCode=";
     String url = "https://kyfw.12306.cn/otn/leftTicketPrice/query";
     String dateParam = "leftTicketDTO.train_date";
@@ -22,7 +23,7 @@ public class LeftTicketCheckerImpl implements LeftTicketChecker {
     String randParam = "randCode";
 
     @Override
-    public LeftTicket check(String trainCode, String from, String to, LocalDate date) {
+    public MyTicket check(String trainCode, String from, String to, LocalDate date) {
         String queryUrl = UrlBuilder.of(url)
                 .addQuery(dateParam, date.format(DateTimeFormatter.ISO_LOCAL_DATE))
                 .addQuery(fromParam, from)
@@ -30,8 +31,10 @@ public class LeftTicketCheckerImpl implements LeftTicketChecker {
                 .addQuery(typeParam, "1")
                 .addQuery(randParam, "")
                 .build();
+        System.out.println(queryUrl);
         String body = HttpUtil.createGet(queryUrl).execute().body();
 
+        System.out.println(body);
         JSONObject res = JSON.parseObject(body)
                 .getJSONArray("data")
                 .stream()
@@ -39,10 +42,14 @@ public class LeftTicketCheckerImpl implements LeftTicketChecker {
                 .map(o -> o.getJSONObject("queryLeftNewDTO"))
                 .filter(o -> StrUtil.equals(trainCode,o.getString("station_train_code")))
                 .findFirst()
-                .orElseGet(null);
+                .orElse(null);
 
+        System.out.println(res);
+
+        val leftDto = JSONObject.toJavaObject(res, LeftTicketDto.class);
+        System.out.println(leftDto);
         // trans json obj to leftTicket
-        return LeftTicketTranser.INSTANCE.fromJsonObject(res);
+        return MyTicket.valueOf(res);
     }
 
     @Override
@@ -64,6 +71,7 @@ public class LeftTicketCheckerImpl implements LeftTicketChecker {
                 .map(o -> o.getString("station_name"))
                 .map(TrainUtil::getStationCodeByName)
                 .collect(Collectors.toList());
-       return res.subList(res.indexOf(from), res.indexOf(to) + 1);
+        return  res;
+//       return res.subList(res.indexOf(from), res.indexOf(to) + 1);
     }
 }

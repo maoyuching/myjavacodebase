@@ -1,11 +1,14 @@
 package crawl;
 
 import junit.framework.TestCase;
-import lombok.val;
+
+import java.time.LocalDate;
 
 public class LeftTicketCheckerImplTest extends TestCase {
 
     public void testCheck() {
-        LeftTicketCheckerImpl checker = new LeftTicketCheckerImpl();
+        MyTicketChecker checker = new LeftTicketCheckerImpl();
+
+        checker.check("G1416", "NGH", "YGG", LocalDate.now().plusDays(1));
     }
 }

@@ -13,8 +13,11 @@ public class TrainUtilTest {
     @Test
     public void getStationCodeByName() {
         val nb = TrainUtil.getStationCodeByName("宁波");
-        System.out.println(nb);
+
         Assert.assertEquals(TrainUtil.getStationCodeByName("宁波"), "NGH");
+        val ysn = TrainUtil.getStationCodeByName("玉山南");
+        Assert.assertEquals(TrainUtil.getStationCodeByName("玉山南"), "YGG");
+
     }
 
     @Test

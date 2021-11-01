@@ -9,6 +9,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="MyRegister" />
         <module name="MyTrainTicket" />
+        <module name="OJ" />
       </profile>
     </annotationProcessing>
   </component>

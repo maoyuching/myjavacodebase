@@ -6,45 +6,50 @@ import lombok.Data;
 import lombok.experimental.Accessors;
 
 /**
+ * 一张单程票
  * 表示两个站点之间的 余票信息
  */
 @Data
 @Accessors(chain = true)
 @Builder
-public class LeftTicket {
+public class MyTicket {
 
     /** the station chinese name*/
     String fromStationName;
     String toStationName;
 
-    /** 车等级 */
+    /** 车等级, 貌似没什么软用 */
     TrainType trainType;
     /** 车等级 */
     public enum TrainType{
-        KTrain, GTrain;
+        KTrain(1), GTrain(2);
+        int type;
+        TrainType(int i) {
+            this.type = i;
+        }
     }
 
     /** 二等座*/
-    int seatSecond;
+    int edz;
     /** 一等座*/
-    int seatFirst;
-    /** without seat ! */
-    int seatWz;
+    int ydz;
+    /** 无座 */
+    int wz;
 
-    /** 银座软座*/
-    int seatYz;
-    int seatRz;
+    /** 硬座软座*/
+    int yz;
+    int rz;
 
-    /** 阴我软卧*/
-    int bedYw;
-    int bedRw;
+    /** 硬卧软卧*/
+    int yw;
+    int rw;
 
     /**
      *  根据 余票 dto json 文件生成对象
-     * @param jsonObject leftDto
+     * @param j leftDto
      * @return the obj
      */
-    public static LeftTicket valueOf(JSONObject jsonObject) {
+    public static MyTicket valueOf(JSONObject j) {
         return null;
     }
 }

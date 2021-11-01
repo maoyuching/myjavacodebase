@@ -11,6 +11,6 @@ public interface LeftTicketTranser {
     LeftTicketTranser INSTANCE = Mappers.getMapper(LeftTicketTranser.class);
 
     @Mapping(target = "", source = "")
-    LeftTicket fromJsonObject(JSONObject jsonObject);
+    MyTicket fromJsonObject(JSONObject jsonObject);
 
 }
