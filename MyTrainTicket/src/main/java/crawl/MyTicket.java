@@ -18,6 +18,9 @@ public class MyTicket {
     String fromStationName;
     String toStationName;
 
+    /** like G1234 */
+    String trainCode;
+
     /** 车等级, 貌似没什么软用 */
     TrainType trainType;
     /** 车等级 */
