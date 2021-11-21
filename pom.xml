@@ -13,6 +13,7 @@
         <module>MyTrainTicket</module>
         <module>MyRegister</module>
         <module>OJ</module>
+        <module>flink-learning</module>
     </modules>
 
     <dependencies>
