@@ -4,6 +4,8 @@ public class ShellSort extends SortHelperSimpleImpl {
 
     /**
      * 希尔排序
+     * 对插入排序的改良，仔细看，他就是在插入排序外层加了一层 分组
+     * 最坏的情况是 O n^2
      * @param nums
      */
     @Override
