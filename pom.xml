@@ -9,6 +9,8 @@
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
 
+    <description> my java code 代码基地</description>
+
     <modules>
         <module>MyTrainTicket</module>
         <module>MyRegister</module>
