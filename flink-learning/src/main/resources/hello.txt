@@ -1,4 +1,0 @@
-hello java
-hello scala
-hello hadoop
-hello flink

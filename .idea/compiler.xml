@@ -7,10 +7,13 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="MyRegister" />
         <module name="MyTrainTicket" />
         <module name="OJ" />
+        <module name="draft" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="MyRegister" target="16" />
+    </bytecodeTargetLevel>
   </component>
 </project>
