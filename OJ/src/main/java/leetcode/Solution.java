@@ -1,6 +1,8 @@
 package leetcode;
 
-import org.jetbrains.annotations.Contract;
+import tree.TreeNode;
+
+import java.util.*;
 
 /**
  * LeetCode 题集合
@@ -39,6 +41,34 @@ public class Solution {
         return ans;
     }
 
+    /**
+     * 230 给定一个二叉搜索树的根节点 root ，和一个整数 k ，请你设计一个算法查找其中第 k 个最小元素（从 1 开始计数）。
+     * @param root
+     * @param k
+     * @return
+     */
+    public int kthSmallest(TreeNode root, int k) {
+        List<Integer> list = new ArrayList<>();
+        // use stack to get all element in binary tree
+        Stack<TreeNode> stack = new Stack<>();
+        Set<TreeNode> traced = new HashSet<>();
+        stack.push(root);
+        traced.add(root);
+        while (!stack.isEmpty()) {
+            TreeNode t = stack.peek();
+            if (t.left != null && !traced.contains(t.left)) {
+                stack.push(t.left);
+            } else {
+                list.add(t.val);
+                stack.pop();
+                traced.add(t);
+                if (t.right != null) {
+                    stack.push(t.right);
+                }
+            }
+        }
+        return list.get(k - 1);
+    }
     /**
      * 415 字符串相加
      * @param num1
