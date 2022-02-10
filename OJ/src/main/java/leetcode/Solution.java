@@ -3,6 +3,7 @@ package leetcode;
 import tree.TreeNode;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * LeetCode 题集合
@@ -39,6 +40,80 @@ public class Solution {
             }
         }
         return ans;
+    }
+
+    /**
+     * 89 格雷编码
+     * 一开始直接用下面那几个辅助函数，用回溯法来做，的确应该是可以的，但是实际不可行，n=10就运行不下去了。
+     * 还得用这种聪明的，找规律的办法，哎
+     * @param n
+     * @return ans
+     */
+    public List<Integer> grayCode(int n) {
+        if (n == 1) {
+            return new ArrayList<>(Arrays.asList(0, 1));
+        }
+        List<Integer> ans = grayCode(n - 1);
+        for (int i = ans.size()-1; i >=0 ; i--) {
+            ans.add((1 << (n - 1)) + ans.get(i));
+        }
+        return ans;
+    }
+
+    /**
+     * 89 格雷编码 辅助函数
+     * @param arr 全排列的数组
+     * @param index 表示在决定下标为index的元素
+     */
+    boolean f(int[] arr, int index) {
+        // 找到了
+        if (index >= arr.length) {
+            return isGray(arr[0], arr[arr.length - 1]);
+        }
+        List<Integer> list = new ArrayList<>();
+        for (int i : arr) list.add(i);
+        list.add(list.get(0));
+        boolean isgray = true;
+        for (int i = 0; i < list.size()-1; i++) {
+            if (!isGray(list.get(i), list.get(i + 1))) {
+                isgray = false;
+            }
+        }
+        if (isgray) return true;
+        // 否则 继续寻找
+        for (int i = index; i < arr.length; i++) {
+            // 如果满足一部分条件，继续寻找
+            if (isGray(arr[i], arr[index-1])) {
+                // 换一个位置
+                int temp = arr[index];
+                arr[index] = arr[i];
+                arr[i] = temp;
+                // 递归寻找
+                boolean find = f(arr, index+1);
+                if (find) {
+                    return true;
+                }
+                // 换回来
+                temp = arr[index];
+                arr[index] = arr[i];
+                arr[i] = temp;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * 86 格雷编码辅助 函数
+     */
+    public boolean isGray(int a, int b) {
+        int c = a ^ b;
+        if (c == 0) return false;
+        if (c == 1) return true;
+        while (c != 1) {
+            if (c % 2 !=0) return false;
+            c /= 2;
+        }
+        return true;
     }
 
     /**

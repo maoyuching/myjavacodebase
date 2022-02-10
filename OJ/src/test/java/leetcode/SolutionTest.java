@@ -4,6 +4,8 @@ import org.junit.Assert;
 import org.junit.Test;
 import tree.TreeNode;
 
+import java.util.List;
+
 import static org.junit.Assert.*;
 
 public class SolutionTest {
@@ -36,5 +38,28 @@ public class SolutionTest {
     @Test
     public void kthSmallest() {
         Assert.assertEquals(2, s.kthSmallest(root1, 2));
+    }
+
+    @Test
+    public void grayCode() {
+        int n = 2;
+        List<Integer> ans = s.grayCode(n);
+        System.out.println(ans);
+
+        for (int i = 0; i < ans.size() - 1; i++) {
+            int a = ans.get(i);
+            int b = ans.get(i + 1);
+            assertTrue(s.isGray(a,b));
+        }
+        int a = ans.get(0);
+        int b = ans.get(ans.size() - 1);
+        assertTrue(s.isGray(a,b));
+    }
+
+    @Test
+    public void isGray() {
+        assertTrue(s.isGray(0,1));
+        assertTrue(s.isGray(8,0));
+        assertFalse(s.isGray(3,4));
     }
 }
