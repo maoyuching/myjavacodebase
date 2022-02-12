@@ -13,6 +13,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="flink-learning" target="8" />
       <module name="MyRegister" target="16" />
     </bytecodeTargetLevel>
   </component>

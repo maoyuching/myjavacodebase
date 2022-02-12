@@ -43,6 +43,34 @@ public class Solution {
     }
 
     /**
+     * 61 旋转链表
+     * @param head
+     * @param k
+     * @return
+     */
+    public ListNode rotateRight(ListNode head, int k) {
+        if (head == null || head.next == null || k == 0) return head;
+        // 对于过长的k，实际上只需要取其余数即可
+        int len = 0;
+        ListNode n = head;
+        while (n != null) {
+            len++;
+            n = n.next;
+        }
+        k = k % len;
+        // k次，每次将末尾元素搬到链表首位
+        for (int i = 0; i < k; i++) {
+            ListNode tail = head;
+            while (tail.next != null & tail.next.next != null) {
+                tail = tail.next;
+            }
+            tail.next.next = head;
+            head = tail.next;
+            tail.next = null;
+        }
+        return head;
+    }
+    /**
      * 89 格雷编码
      * 一开始直接用下面那几个辅助函数，用回溯法来做，的确应该是可以的，但是实际不可行，n=10就运行不下去了。
      * 还得用这种聪明的，找规律的办法，哎

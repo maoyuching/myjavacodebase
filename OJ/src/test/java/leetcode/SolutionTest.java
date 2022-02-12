@@ -62,4 +62,13 @@ public class SolutionTest {
         assertTrue(s.isGray(8,0));
         assertFalse(s.isGray(3,4));
     }
+
+    @Test
+    public void rotateRight() {
+
+    }
+
+    @Test
+    public void f() {
+    }
 }
