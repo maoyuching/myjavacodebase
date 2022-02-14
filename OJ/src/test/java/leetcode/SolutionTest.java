@@ -71,4 +71,17 @@ public class SolutionTest {
     @Test
     public void f() {
     }
+
+    @Test
+    public void spiralOrder() {
+        int[][] m = new int[][]{{1, 2, 3,4}, {5, 6, 7,8}, {9, 10, 11, 12},{13, 14, 15,16}};
+        int[][] m1 = new int[][]{{1, 2, 3,4}, {5, 6, 7,8}, {9, 10, 11, 12}};
+        int[][] m2 = new int[][]{{1, 2, 3}, {4, 5, 6}, {7,8,9}};
+        List<Integer> ans = s.spiralOrder(m1);
+        ans.stream().map(i -> i + " ").forEach(System.out::print);
+        System.out.println();
+        s.spiralOrder(m2).stream().map(i -> i + " ").forEach(System.out::print);
+        System.out.println();
+        s.spiralOrder(m).stream().map(i -> i + " ").forEach(System.out::print);
+    }
 }

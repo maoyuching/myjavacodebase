@@ -3,6 +3,7 @@ package leetcode;
 import tree.TreeNode;
 
 import java.util.*;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 /**
@@ -42,6 +43,46 @@ public class Solution {
         return ans;
     }
 
+    /**
+     * 54 螺旋矩阵
+     * 很讨厌的题目
+     * @param matrix
+     * @return
+     */
+    public List<Integer> spiralOrder(int[][] matrix) {
+        int m = matrix.length;
+        int n = matrix[0].length;
+        // 将第一行放进list, 然后再旋转矩阵
+        List<Integer> list = new ArrayList<>();
+        for (int i = 0; i < n; i++) list.add(matrix[0][i]);
+        // 停止递归条件
+        if (m == 1) return list;
+        // else ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+        // 旋转矩阵
+        int sm = 0; // 子矩阵的行下标
+        int sn = 0; // col
+        int[][] submartix = new int[n][m-1];
+        for (int i = n - 1; i >= 0; i--) {
+            for (int j = 1; j < m; j++) {
+                submartix[sm][sn] = matrix[j][i];
+                sn = ++sn % (m-1);
+            }
+            sm = ++sm % (n);
+        }
+        // recursion
+        list.addAll(spiralOrder(submartix));
+        return list;
+    }
+
+    /**
+     * 59 螺旋矩阵2
+     * may be an suck question
+     * @param n
+     * @return
+     */
+    public int[][] generateMatrix(int n) {
+        return null;
+    }
     /**
      * 61 旋转链表
      * @param head
