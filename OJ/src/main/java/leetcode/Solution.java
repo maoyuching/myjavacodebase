@@ -77,12 +77,33 @@ public class Solution {
     /**
      * 59 螺旋矩阵2
      * may be an suck question
+     * 想法：既然是一个方阵， 那么可以像洋葱一样样，一层一层地剥开我的心
      * @param n
-     * @return
+     * @return 矩阵
      */
     public int[][] generateMatrix(int n) {
-        return null;
+        int[][] ans = new int[n][n];
+        int num = 1;
+        for (int i = 0; i < ((n + 1) / 2); i++) { // 第几个方圈
+            int len = n - (i * 2); // 边长
+            if (len == 1) ans[i][i] = num++;
+            // 下面是四条边的赋值
+            for (int j = i; j < i + len -1; j++) {
+                ans[i][j] = num++;
+            }
+            for (int j = i ; j < len + i -1; j++) {
+                ans[j][len + i - 1] = num++;
+            }
+            for (int j = i + len - 1; j > i; j--) {
+                ans[i+len-1][j] = num++;
+            }
+            for (int j = i + len - 1; j > i; j--) {
+                ans[j][i] = num++;
+            }
+        }
+        return ans;
     }
+
     /**
      * 61 旋转链表
      * @param head

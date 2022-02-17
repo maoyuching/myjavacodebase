@@ -1,10 +1,16 @@
 package leetcode;
 
+import cn.hutool.core.collection.CollUtil;
+import cn.hutool.core.collection.IterUtil;
+import cn.hutool.core.lang.Range;
+import cn.hutool.core.util.NumberUtil;
+import cn.hutool.core.util.StrUtil;
 import org.junit.Assert;
 import org.junit.Test;
 import tree.TreeNode;
 
 import java.util.List;
+import java.util.stream.IntStream;
 
 import static org.junit.Assert.*;
 
@@ -83,5 +89,15 @@ public class SolutionTest {
         s.spiralOrder(m2).stream().map(i -> i + " ").forEach(System.out::print);
         System.out.println();
         s.spiralOrder(m).stream().map(i -> i + " ").forEach(System.out::print);
+    }
+
+    @Test
+    public void generateMatrix() {
+        int n = 3;
+        int[][] matrix = s.generateMatrix(n);
+        List<Integer> ans = s.spiralOrder(matrix);
+
+        String s = StrUtil.join(",", IntStream.range(1, 1 + n*n).iterator());
+        assertEquals(s, StrUtil.join(",", ans.iterator()));
     }
 }
