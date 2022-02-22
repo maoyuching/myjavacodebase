@@ -32,4 +32,12 @@ public class Solution2Test {
         assertEquals(true, s2.isPalindrome(genLn(1)));
         assertEquals(false, s2.isPalindrome(genLn(1,2)));
     }
+
+    @Test
+    public void getIntersectionNode() {
+        val la = genLn(1, 2, 3, 4, 5, 6);
+        val lb = genLn(9);
+        lb.next = la.next;
+        assertEquals(2,s2.getIntersectionNode(la, lb).val);
+    }
 }

@@ -43,4 +43,39 @@ public class Solution2 {
         }
         return true;
     }
+
+    /**
+     * 链表相交,找到两个链表的相交点, 思路先判断两个链表的长度，然后让长的那个先走几步，以至于同一起跑线，再去判断重复节点即可
+     * @param headA
+     * @param headB
+     * @return 相交的节点
+     */
+    public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+        ListNode temp = headA;
+        int lena = 0;
+        while (temp != null) {
+            lena++;
+            temp = temp.next;
+        }
+        temp = headB;
+        int lenb = 0;
+        while (temp != null) {
+            lenb++;
+            temp = temp.next;
+        }
+        for (int i = 0; i < lena - lenb; i++) {
+            headA = headA.next;
+        }
+        for (int i = 0; i < lenb - lena; i++) {
+            headB = headB.next;
+        }
+        while (headA != null && headB != null) {
+            if (headA == headB) { // 注意这里要直接判断节点是同一个
+                return headA;
+            }
+            headA = headA.next;
+            headB = headB.next;
+        }
+        return null;
+    }
 }
