@@ -78,4 +78,28 @@ public class Solution2 {
         }
         return null;
     }
+
+    /**
+     * 链表 环路检测
+     * @param head
+     * @return
+     */
+    public ListNode detectCycle(ListNode head) {
+        if (head == null) return null;
+        ListNode slow = head;
+        ListNode fast = head.next;
+        while (slow != fast) {
+            if (fast == null) return null;
+            if (fast.next == null) return null;
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        // now s = f
+        ListNode temp = new ListNode(1, head);
+        while (temp != slow) {
+            slow = slow.next;
+            temp = temp.next;
+        }
+        return temp;
+    }
 }

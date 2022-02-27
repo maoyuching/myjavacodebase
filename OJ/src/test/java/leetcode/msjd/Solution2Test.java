@@ -4,6 +4,8 @@ import leetcode.ListNode;
 import lombok.val;
 import org.junit.Test;
 
+import java.awt.*;
+
 import static org.junit.Assert.*;
 
 public class Solution2Test {
@@ -39,5 +41,16 @@ public class Solution2Test {
         val lb = genLn(9);
         lb.next = la.next;
         assertEquals(2,s2.getIntersectionNode(la, lb).val);
+    }
+
+    @Test
+    public void detectCycle() {
+        val l = genLn(1, 2, 3, 4, 5);
+        l.next.next.next.next.next = l.next;
+//        assertEquals(2, s2.detectCycle(l).val);
+
+        val l2 = genLn(1);
+        assertNull(s2.detectCycle(l2));
+        Toolkit.getDefaultToolkit().beep();
     }
 }
