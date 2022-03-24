@@ -53,4 +53,16 @@ public class Solution2Test {
         assertNull(s2.detectCycle(l2));
         Toolkit.getDefaultToolkit().beep();
     }
+
+    @Test
+    public void findWhetherExistsPath() {
+        int[][] graph = new int[4][2];
+        graph[0] = new int[]{0, 1};
+        graph[1] = new int[]{0, 2};
+        graph[2] = new int[]{1, 2};
+        graph[3] = new int[]{1, 2};
+        val b = s2.findWhetherExistsPath(3, graph, 0, 2);
+        assertTrue(b);
+        assertFalse(s2.findWhetherExistsPath(3,graph,2,1));
+    }
 }

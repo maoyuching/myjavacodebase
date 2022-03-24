@@ -201,6 +201,24 @@
             </LeetcodeEditor>
           </value>
         </entry>
+        <entry key="$USER_HOME$/AppData/Local/Temp/leetcode/editor/cn/[剑指 Offer 10- II]青蛙跳台阶问题.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="$USER_HOME$/AppData/Local/Temp/leetcode/editor/cn/doc/content/[剑指 Offer 10- II]青蛙跳台阶问题.md" />
+              <option name="path" value="$USER_HOME$/AppData/Local/Temp/leetcode/editor/cn/[剑指 Offer 10- II]青蛙跳台阶问题.java" />
+              <option name="questionId" value="100277" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/AppData/Local/Temp/leetcode/editor/cn/[面试题 02.01]移除重复节点.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="$USER_HOME$/AppData/Local/Temp/leetcode/editor/cn/doc/content/[面试题 02.01]移除重复节点.md" />
+              <option name="path" value="$USER_HOME$/AppData/Local/Temp/leetcode/editor/cn/[面试题 02.01]移除重复节点.java" />
+              <option name="questionId" value="100163" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
         <entry key="$USER_HOME$/AppData/Local/Temp/leetcode/editor/cn/[面试题 02.06]回文链表.java">
           <value>
             <LeetcodeEditor>
@@ -216,6 +234,42 @@
               <option name="contentPath" value="$USER_HOME$/AppData/Local/Temp/leetcode/editor/cn/doc/content/[面试题 02.07]链表相交.md" />
               <option name="path" value="$USER_HOME$/AppData/Local/Temp/leetcode/editor/cn/[面试题 02.07]链表相交.java" />
               <option name="questionId" value="100167" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/AppData/Local/Temp/leetcode/editor/cn/[面试题 03.01]三合一.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="$USER_HOME$/AppData/Local/Temp/leetcode/editor/cn/doc/content/[面试题 03.01]三合一.md" />
+              <option name="path" value="$USER_HOME$/AppData/Local/Temp/leetcode/editor/cn/[面试题 03.01]三合一.java" />
+              <option name="questionId" value="100172" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/AppData/Local/Temp/leetcode/editor/cn/[面试题 03.02]栈的最小值.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="$USER_HOME$/AppData/Local/Temp/leetcode/editor/cn/doc/content/[面试题 03.02]栈的最小值.md" />
+              <option name="path" value="$USER_HOME$/AppData/Local/Temp/leetcode/editor/cn/[面试题 03.02]栈的最小值.java" />
+              <option name="questionId" value="100169" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/AppData/Local/Temp/leetcode/editor/cn/[面试题 03.04]化栈为队.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="$USER_HOME$/AppData/Local/Temp/leetcode/editor/cn/doc/content/[面试题 03.04]化栈为队.md" />
+              <option name="path" value="$USER_HOME$/AppData/Local/Temp/leetcode/editor/cn/[面试题 03.04]化栈为队.java" />
+              <option name="questionId" value="100170" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/AppData/Local/Temp/leetcode/editor/cn/[面试题 04.01]节点间通路.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="$USER_HOME$/AppData/Local/Temp/leetcode/editor/cn/doc/content/[面试题 04.01]节点间通路.md" />
+              <option name="path" value="$USER_HOME$/AppData/Local/Temp/leetcode/editor/cn/[面试题 04.01]节点间通路.java" />
+              <option name="questionId" value="100171" />
             </LeetcodeEditor>
           </value>
         </entry>

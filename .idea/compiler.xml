@@ -7,7 +7,6 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="MyTrainTicket" />
         <module name="OJ" />
         <module name="draft" />
       </profile>
@@ -15,6 +14,7 @@
     <bytecodeTargetLevel>
       <module name="flink-learning" target="8" />
       <module name="MyRegister" target="16" />
+      <module name="MyTrainTicket" target="8" />
     </bytecodeTargetLevel>
   </component>
 </project>

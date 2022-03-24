@@ -1,6 +1,10 @@
 package leetcode.msjd;
 
+import com.google.common.collect.Sets;
 import leetcode.ListNode;
+import org.apache.commons.collections4.SetUtils;
+
+import java.util.*;
 
 /**
  * 程序员面试经典
@@ -103,5 +107,46 @@ public class Solution2 {
         return temp;
     }
 
+    /**
+     *节点间通路。给定有向图，设计一个算法，找出两个节点之间是否存在一条路径。
+     * @param n
+     * @param graph
+     * @param start
+     * @param target
+     * @return
+     */
+    public boolean findWhetherExistsPath(int n, int[][] graph, int start, int target) {
+        Queue<Integer> queue = new LinkedList<>();
+        for (int[] link : graph) {
+            if (link[0] == start) {
+                queue.add(link[1]);
+            }
+        }
+        Map<Integer, Set<Integer>> map = new HashMap<>();
+        for (int[] link : graph) {
+            if (map.containsKey(link[0])) {
+                map.get(link[0]).add(link[1]);
+            } else {
+                map.put(link[0], new HashSet<>(Collections.singletonList(link[1])));
+            }
+        }
+        HashSet<Integer> checkedNodes = new HashSet<>();
+        while (!queue.isEmpty()) {
+            int node = queue.poll();
+            if (node == target) {
+                return true;
+            }
+            checkedNodes.add(node);
+            // 查找后续节点
+            if (map.containsKey(node)) {
+                for (Integer i : map.get(node)) {
+                    if (!checkedNodes.contains(i)) {
+                        queue.add(i);
+                    }
+                }
+            }
+        }
+        return false;
+    }
 
 }
