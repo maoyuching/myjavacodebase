@@ -1,2 +1,4 @@
 # Project exclude paths
 /MyTrainTicket/target/
+/.idea/
+/*/target
