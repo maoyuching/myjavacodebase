@@ -12,7 +12,7 @@
     <description> my java code 代码基地</description>
 
     <modules>
-<!--        <module>MyTrainTicket</module>-->
+        <module>MyTrainTicket</module>
         <module>OJ</module>
         <module>draft</module>
     </modules>
@@ -70,6 +70,10 @@
         </dependency>
 
     </dependencies>
+    <properties>
+        <maven.compiler.source>16</maven.compiler.source>
+        <maven.compiler.target>16</maven.compiler.target>
+    </properties>
 
     <repositories>
         <repository>
