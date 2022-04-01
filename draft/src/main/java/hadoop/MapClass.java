@@ -15,6 +15,16 @@ public class MapClass extends Mapper<LongWritable, Text, Text, IntWritable> {
     // 文本 顾名思义，估计是 字符串之类的东西
     private Text word = new Text();
 
+    // map 程序， 输入是一段文本，输出 是 key value
+
+    /**
+     * input : "....."
+     * output:
+     * hello 1
+     * world 1
+     * world 1
+     *
+     */
     @Override
     protected void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
         String line = value.toString();

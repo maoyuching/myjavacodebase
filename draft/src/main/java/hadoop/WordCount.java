@@ -24,17 +24,21 @@ public class WordCount extends Configured implements Tool{
             return -1;
         }
         Job job = new Job();
-        job.setJarByClass(WordCount.class);
+        job.setJarByClass(this.getClass());
         job.setJobName("WordCounter");
+        // 设置任务的输入, path在hadoop中表示一个文件
         FileInputFormat.addInputPath(job, new Path(args[0]));
+        // 设置任务的输出, path在hadoop中表示一个文件
         FileOutputFormat.setOutputPath(job, new Path(args[1]));
+        // 输出 key is str, value is int
         job.setOutputKeyClass(Text.class);
         job.setOutputValueClass(IntWritable.class);
+        // 把kv打成文本输出
         job.setOutputFormatClass(TextOutputFormat.class);
         // set mapper and reducer
         job.setMapperClass(MapClass.class);
         job.setReducerClass(ReduceClass.class);
-        // running job
+        // running job......
         int returnValue = job.waitForCompletion(true) ? 0:1;
         if(job.isSuccessful()) {
             System.out.println("Job was successful");
