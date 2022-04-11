@@ -1,4 +1,4 @@
-package leetcode.msjd;
+package leetcode.crackingTheCodingInterview;
 
 
 //实现一个MyQueue类，该类用两个栈来实现一个队列。 示例： MyQueue queue = new MyQueue(); queue.push(1);

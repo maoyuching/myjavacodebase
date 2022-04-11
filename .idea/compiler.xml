@@ -9,12 +9,12 @@
         <outputRelativeToContentRoot value="true" />
         <module name="OJ" />
         <module name="draft" />
+        <module name="MyTrainTicket" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="flink-learning" target="8" />
       <module name="MyRegister" target="16" />
-      <module name="MyTrainTicket" target="8" />
     </bytecodeTargetLevel>
   </component>
 </project>

@@ -1,4 +1,4 @@
-package leetcode.msjd;
+package leetcode.crackingTheCodingInterview;
 
 import leetcode.ListNode;
 import lombok.val;
