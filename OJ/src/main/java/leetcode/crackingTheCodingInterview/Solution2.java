@@ -147,4 +147,33 @@ public class Solution2 {
         return false;
     }
 
+
+    /**
+     * 分割 链表
+     * @param head
+     * @param x
+     * @return 链表
+     */
+    public ListNode partition(ListNode head, int x) {
+        // 处理边界条件，0个或1个元素
+        if (head == null || head.next == null) return head;
+        // 记住 一看到链表 就是说双指针
+        ListNode p1 = head;
+        ListNode p2 = p1.next;
+        // travers node if less move to head, else do nothing
+        while (p2 != null) {
+            if (p2.val < x) {
+                // 第一个元素天然有序， 从第二个元素开始，小于x的放到头结点上去
+                p1.next = p2.next; // 将这个元素摘出来
+                p2.next = head; // 移到头结点
+                head = p2; // 更新头结点
+                p2 = p1.next; // 移动双指针
+            } else {
+                // 移动双指针
+                p1 = p1.next;
+                p2 = p2.next;
+            }
+        }
+        return head;
+    }
 }

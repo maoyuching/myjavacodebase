@@ -1,4 +1,7 @@
+import org.junit.Assert;
 import org.junit.Test;
+
+import java.util.List;
 
 public class AnyThingTest {
 
@@ -23,6 +26,12 @@ public class AnyThingTest {
         achild.f(x); // Achild X
         achild.f(xc); // Achild X
         achild.f(xChild); // Achild Xchild
+    }
+
+    @Test
+    public void test2() {
+        List a = null;
+        Assert.assertTrue(a == null);
     }
 }
 
