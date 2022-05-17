@@ -176,4 +176,36 @@ public class Solution2 {
         }
         return head;
     }
+
+    /**
+     * 链表求和
+     * 采用递归的方法， 代码不是很漂亮， 主要就是模拟 加法操作，
+     * @see this.f()
+     *
+     * @param l1
+     * @param l2
+     * @return
+     */
+    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+        if (l1 == null && l2 == null) return new ListNode(0);
+        return f(l1, l2, 0);
+    }
+
+    private ListNode f(ListNode l1, ListNode l2, int sum) {
+        if (l1 != null) sum += l1.val;
+        if (l2 != null) sum += l2.val;
+        if (sum == 0 && l1 == null && l2 == null) {
+            return null;
+        }
+        ListNode ans = new ListNode(0);
+        if (sum < 10) {
+            ans.val = sum;
+            ans.next = f(l1 == null ? null: l1.next, l2 == null ? null:l2.next, 0);
+        } else {
+            ans.val = sum - 10;
+            ans.next = f(l1 == null ? null: l1.next, l2 == null ? null:l2.next, 1);
+        }
+        return ans;
+    }
+
 }
