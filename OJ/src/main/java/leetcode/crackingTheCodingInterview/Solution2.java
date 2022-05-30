@@ -1,6 +1,7 @@
 package leetcode.crackingTheCodingInterview;
 
 import leetcode.ListNode;
+import tree.TreeNode;
 
 import java.util.*;
 
@@ -244,6 +245,32 @@ public class Solution2 {
         public boolean isEmpty() {
             return stack.isEmpty();
         }
+    }
+
+    /**
+     * 创建含有某一深度上所有节点的链表
+     * 树 广度优先搜索 链表 二叉树
+     * @param tree
+     * @return
+     */
+    public ListNode[] listOfDepth(TreeNode tree) {
+        Queue<TreeNode> queue = new LinkedList<>();
+        List<ListNode> ans = new ArrayList<>();
+
+        if (tree != null) queue.add(tree);
+        while (!queue.isEmpty()) {
+            int size = queue.size();
+            ListNode head = new ListNode();
+            ListNode listNode = head;
+            for (int i = 0; i < size; i++) {
+                if (queue.peek().left != null) queue.add(queue.peek().left);
+                if (queue.peek().right != null) queue.add(queue.peek().right);
+                listNode.next = new ListNode(queue.poll().val);
+                listNode = listNode.next;
+            }
+            ans.add(head.next);
+        }
+        return ans.toArray(new ListNode[0]);
     }
 }
 
