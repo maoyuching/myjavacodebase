@@ -207,6 +207,44 @@ public class Solution2 {
         return ans;
     }
 
+    /**
+     * 栈排序
+     */
+    static class SortedStack {
+
+        Stack<Integer> stack;
+        Stack<Integer> stack2;
+
+        public SortedStack() {
+            stack = new Stack<>();
+            stack2 = new Stack<>();
+        }
+
+        public void push(int val) {
+            while (!stack.isEmpty() && stack.peek() < val) {
+                stack2.push(stack.pop());
+            }
+            stack.push(val);
+            while (!stack2.isEmpty()) {
+                stack.push(stack2.pop());
+            }
+        }
+
+        public void pop() {
+            if (!stack.isEmpty()) {
+                stack.pop();
+            }
+        }
+
+        public int peek() {
+            if (stack.isEmpty()) return -1;
+            return stack.peek();
+        }
+
+        public boolean isEmpty() {
+            return stack.isEmpty();
+        }
+    }
 }
 
 class StackOfPlates {
