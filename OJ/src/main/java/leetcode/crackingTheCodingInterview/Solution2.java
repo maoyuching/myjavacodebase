@@ -272,6 +272,32 @@ public class Solution2 {
         }
         return ans.toArray(new ListNode[0]);
     }
+
+    /**
+     * 合法二叉搜索树
+     * @param root
+     * @return
+     */
+    public boolean isValidBST(TreeNode root) {
+        if (root == null) return true;
+        return f2(root.left,null, root) && f2(root.right, root, null);
+    }
+
+    /**
+     * 辅助递归函数
+     * 用一个最大和最小值，表示当前节点数值的应该区间，两边不包括
+     * @param root
+     * @param min 当前最小节点
+     * @param max 当前最大节点
+     * @return
+     */
+    boolean f2(TreeNode root, TreeNode min, TreeNode max) {
+        if (root == null) return true;
+        if (min != null && root.val <= min.val) return false;
+        if (max != null && root.val >= max.val) return false;
+        return f2(root.left, min, max == null ? root: root.val < max.val ? root: max)
+                && f2(root.right, min == null ? root: root.val > min.val ? root: min, max);
+    }
 }
 
 class StackOfPlates {
