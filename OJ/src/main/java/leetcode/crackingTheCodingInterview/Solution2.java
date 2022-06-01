@@ -298,6 +298,39 @@ public class Solution2 {
         return f2(root.left, min, max == null ? root: root.val < max.val ? root: max)
                 && f2(root.right, min == null ? root: root.val > min.val ? root: min, max);
     }
+
+    //    public TreeNode inorderSuccessor(TreeNode root, TreeNode p) {
+//        if (root == null ) return null;
+//        if (p.val >= root.val) {
+//            return inorderSuccessor(root.right, p);
+//        } else {
+//            return inorderSuccessor(root.left, p) == null ? root : inorderSuccessor(root.left, p);
+//        }
+//    }
+
+    TreeNode last;
+
+    /**
+     * 中继者 就是给定一个节点， 查找二叉搜索树中第一个比这个元素大的元素
+     * 一种策略是，对二叉搜索树进行中序遍历， 保存上一次遍历的节点， 如果发现上一次遍历的就是给定的节点， 那么当前节点就是要返回的节点了。
+     *
+     * 另一种策略， 更聪明， 见上面， 代码更简单，不需要进行中序遍历， 思想是：如果当前节点大于p，那么p的下一个节点一定在右子树
+     * 反之，可能在左子树， 如果左子树没有找到，那么就是root节点自己。（这是因为：左子树没有找到的情况就是，左子树的元素都小于等于p， p又小于root，
+     * 显然，root 就是答案）
+     *
+     * 但是我觉得，下面这个，中序遍历，对于我来说，更好理解
+     * @param root
+     * @param p
+     * @return
+     */
+    public TreeNode inorderSuccessor(TreeNode root, TreeNode p) {
+        if (root == null ) return null;
+        TreeNode l = inorderSuccessor(root.left, p);
+        if (l != null) return l;
+        if (last == p) return root;
+        last = root;
+        return inorderSuccessor(root.right, p);
+    }
 }
 
 class StackOfPlates {
