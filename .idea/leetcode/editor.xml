@@ -3,6 +3,50 @@
   <component name="LeetcodeEditor">
     <option name="projectConfig">
       <map>
+        <entry key="$USER_HOME$/AppData/Local/Temp/leetcode/editor/cn/[1345]跳跃游戏 IV.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="$USER_HOME$/AppData/Local/Temp/leetcode/editor/cn/doc/content/[1345]跳跃游戏 IV.md" />
+              <option name="frontendQuestionId" value="leetcode.cn1345" />
+              <option name="host" value="leetcode.cn" />
+              <option name="path" value="$USER_HOME$/AppData/Local/Temp/leetcode/editor/cn/[1345]跳跃游戏 IV.java" />
+              <option name="titleSlug" value="jump-game-iv" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/AppData/Local/Temp/leetcode/editor/cn/[1480]一维数组的动态和.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="$USER_HOME$/AppData/Local/Temp/leetcode/editor/cn/doc/content/[1480]一维数组的动态和.md" />
+              <option name="frontendQuestionId" value="leetcode.cn1480" />
+              <option name="host" value="leetcode.cn" />
+              <option name="path" value="$USER_HOME$/AppData/Local/Temp/leetcode/editor/cn/[1480]一维数组的动态和.java" />
+              <option name="titleSlug" value="running-sum-of-1d-array" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/AppData/Local/Temp/leetcode/editor/cn/[2233]K 次增加后的最大乘积.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="$USER_HOME$/AppData/Local/Temp/leetcode/editor/cn/doc/content/[2233]K 次增加后的最大乘积.md" />
+              <option name="frontendQuestionId" value="leetcode.cn2233" />
+              <option name="host" value="leetcode.cn" />
+              <option name="path" value="$USER_HOME$/AppData/Local/Temp/leetcode/editor/cn/[2233]K 次增加后的最大乘积.java" />
+              <option name="titleSlug" value="maximum-product-after-k-increments" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/AppData/Local/Temp/leetcode/editor/cn/[782]变为棋盘.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="$USER_HOME$/AppData/Local/Temp/leetcode/editor/cn/doc/content/[782]变为棋盘.md" />
+              <option name="frontendQuestionId" value="leetcode.cn782" />
+              <option name="host" value="leetcode.cn" />
+              <option name="path" value="$USER_HOME$/AppData/Local/Temp/leetcode/editor/cn/[782]变为棋盘.java" />
+              <option name="titleSlug" value="transform-to-chessboard" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
         <entry key="$USER_HOME$/AppData/Local/Temp/leetcode/editor/cn/[面试题 01.05]一次编辑.java">
           <value>
             <LeetcodeEditor>
@@ -110,6 +154,17 @@
               <option name="host" value="leetcode.cn" />
               <option name="path" value="$USER_HOME$/AppData/Local/Temp/leetcode/editor/cn/[面试题 04.06]后继者.java" />
               <option name="titleSlug" value="successor-lcci" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/AppData/Local/Temp/leetcode/editor/cn/[面试题 17.13]恢复空格.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="$USER_HOME$/AppData/Local/Temp/leetcode/editor/cn/doc/content/[面试题 17.13]恢复空格.md" />
+              <option name="frontendQuestionId" value="leetcode.cn面试题 17.13" />
+              <option name="host" value="leetcode.cn" />
+              <option name="path" value="$USER_HOME$/AppData/Local/Temp/leetcode/editor/cn/[面试题 17.13]恢复空格.java" />
+              <option name="titleSlug" value="re-space-lcci" />
             </LeetcodeEditor>
           </value>
         </entry>

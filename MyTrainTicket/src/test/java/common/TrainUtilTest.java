@@ -4,6 +4,9 @@ import cn.hutool.core.util.StrUtil;
 import lombok.val;
 import org.junit.Assert;
 import org.junit.Test;
+import v1.The12306Util;
+
+import java.time.LocalDate;
 
 public class TrainUtilTest {
 
@@ -12,17 +15,17 @@ public class TrainUtilTest {
      */
     @Test
     public void getStationCodeByName() {
-        val nb = TrainUtil.getStationCodeByName("宁波");
+        val nb = The12306Util.getStationCodeByName("宁波");
 
-        Assert.assertEquals(TrainUtil.getStationCodeByName("宁波"), "NGH");
-        val ysn = TrainUtil.getStationCodeByName("玉山南");
-        Assert.assertEquals(TrainUtil.getStationCodeByName("玉山南"), "YGG");
+        Assert.assertEquals(The12306Util.getStationCodeByName("宁波"), "NGH");
+        val ysn = The12306Util.getStationCodeByName("玉山南");
+        Assert.assertEquals(The12306Util.getStationCodeByName("玉山南"), "YGG");
 
     }
 
     @Test
     public void getTrainNoByTrainCode() {
-        val trainNo = TrainUtil.getTrainNoByTrainCode("G1416");
+        val trainNo = The12306Util.getTrainNoByTrainCode2("玉山南", "宁波", "G1416", LocalDate.now());
         System.out.println(trainNo);
         Assert.assertTrue(StrUtil.isNotEmpty(trainNo));
     }

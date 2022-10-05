@@ -208,6 +208,7 @@ public class Solution2 {
         return ans;
     }
 
+
     /**
      * 栈排序
      */
@@ -307,7 +308,6 @@ public class Solution2 {
 //            return inorderSuccessor(root.left, p) == null ? root : inorderSuccessor(root.left, p);
 //        }
 //    }
-
     TreeNode last;
 
     /**
@@ -331,36 +331,42 @@ public class Solution2 {
         last = root;
         return inorderSuccessor(root.right, p);
     }
+
+    /**
+     * 堆盘子
+     */
+    static class StackOfPlates {
+        List<Stack<Integer>> container;
+        int cap ;
+
+        public StackOfPlates(int cap) {
+            this.cap = cap;
+        }
+
+        public void push(int val) {
+            if (container.size() == 0) container.add(new Stack<>());
+            if (container.get(container.size() - 1).size() >= cap) {
+                container.add(new Stack<>());
+            }
+            container.get(container.size() - 1).push(val);
+        }
+
+        public int pop() {
+            if (container.isEmpty()) return -1;
+            if (container.get(container.size()-1).isEmpty()) return -1;
+            int ans =  container.get(container.size() - 1).pop();
+            if (container.get(container.size() - 1).isEmpty()) {
+                container.remove(container.size() - 1);
+            }
+            return ans;
+        }
+
+        public int popAt(int index) {
+            if (container.size() -1 < index) return -1;
+            return container.get(index).pop();
+        }
+    }
+
+
 }
 
-class StackOfPlates {
-    List<Stack<Integer>> container;
-    int cap ;
-
-    public StackOfPlates(int cap) {
-        this.cap = cap;
-    }
-
-    public void push(int val) {
-        if (container.size() == 0) container.add(new Stack<>());
-        if (container.get(container.size() - 1).size() >= cap) {
-            container.add(new Stack<>());
-        }
-        container.get(container.size() - 1).push(val);
-    }
-
-    public int pop() {
-        if (container.isEmpty()) return -1;
-        if (container.get(container.size()-1).isEmpty()) return -1;
-        int ans =  container.get(container.size() - 1).pop();
-        if (container.get(container.size() - 1).isEmpty()) {
-            container.remove(container.size() - 1);
-        }
-        return ans;
-    }
-
-    public int popAt(int index) {
-        if (container.size() -1 < index) return -1;
-        return container.get(index).pop();
-    }
-}
