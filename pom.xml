@@ -15,6 +15,7 @@
         <module>MyTrainTicket</module>
         <module>OJ</module>
         <module>draft</module>
+        <module>MySpider1</module>
     </modules>
 
     <dependencies>
